@@ -126,8 +126,8 @@ def http_quote(string):
         except ImportError:
             string = string.encode('ascii', 'replace')
     # Wrap in double-quotes for ; , and the like
-    string = string.replace(b'\\', b'\\\\').replace(b'"', b'\\"')
-    return '"{0!s}"'.format(string.decode())
+    string = string.replace('\\', '\\\\').replace('"', '\\"')
+    return string.replace(" ", "_")
 
 
 def pathname2fileurl(pathname):
